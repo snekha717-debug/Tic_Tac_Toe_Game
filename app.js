@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+const { useState } = React;
 
 export default function TicTacToe() {
   const [board, setBoard] = useState(Array(9).fill(null));
@@ -27,7 +27,6 @@ export default function TicTacToe() {
 
   // Handle player clicks
   const handleClick = (index) => {
-    // If there's a winner or the square is already filled, do nothing
     if (winner || board[index]) return;
 
     const newBoard = [...board];
@@ -84,7 +83,7 @@ export default function TicTacToe() {
   );
 }
 
-// Simple inline styles for a clean layout
+// Inline styles
 const styles = {
   container: {
     fontFamily: '"Segoe UI", Roboto, Helvetica, Arial, sans-serif',
@@ -137,3 +136,7 @@ const styles = {
     boxShadow: '0 2px 4px rgba(0,0,0,0.2)',
   },
 };
+
+// Mount the app into the DOM layout defined in index.html
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<TicTacToe />);
